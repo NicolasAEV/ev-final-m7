@@ -1,0 +1,41 @@
+<section>
+
+
+    <select name="option" id="option">
+        Cantidad de registros a mostrar:
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="5">5</option>
+    </select>
+    <button type="submit" class="btn btn-primary" id="btnSiguiente" data-offset="{{ultimoOffset}}">Siguiente</button>
+    
+</section>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Pais</th>
+            <th scope="col">Continente</th>
+            <th scope="col">Poblacion</th>
+            <th scope="col">Pib 2019</th>
+            <th scope="col">Pib 2020</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {{#if paises}}
+        {{#each paises}}
+        <tr>
+            <th scope="row">{{this.nombre}}</th>
+            <td>{{this.continente}}</td>
+            <td>{{this.poblacion}}</td>
+            <td>{{this.pib_2019}}</td>
+            <td>{{this.pib_2020}}</td>
+
+        </tr>
+        {{/each}}
+        {{else}}
+        <th>no tenemos paises</th>
+        {{/if}}
+    </tbody>
+</table>
+<script src="/js/inicio.js"></script>
