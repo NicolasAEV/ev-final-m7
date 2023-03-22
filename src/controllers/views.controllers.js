@@ -15,12 +15,15 @@ export const getAllCountrys = async (req, res) => {
     join paises_pib pp
     on p.nombre = pp.nombre
     limit ${limit} offset ${offset}
-    `)
-    console.log(consulta.rows)
-    if (consulta) {
+    `);
+    console.log(consulta)
+    if(consulta.rows == 0) {offset = 0}
+    if (consulta) { 
         res.render('home', {
             title: 'inicio',
-            paises: consulta.rows
+            paises: consulta.rows,
+            limit,
+            offset
         })
     }
 }
